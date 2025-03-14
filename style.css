@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #ffffff;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.linha1 {
+    display: flex;
+    width: 100%;
+    height: 70%;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 55%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-direction: column;
+}
+
+.container h1{
+    position: absolute;
+    top: 0;
+    left: 10px;
+}
+
+.containerCSS {
+    padding: 20px;
+    width: 45%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#cssInput {
+    font-size: 18px;
+    resize: none;
+    flex-grow: 1;
+    width: 95%;
+    padding: 10px;
+    margin: 10px;;
+}
+
+.linha2 {
+    display: flex;
+    width: 100%;
+    height: 30%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+#tarefas {
+    width: 55%;
+    text-align: left;
+}
+
+#solucoes {
+    width: 45%;
+    height: 100%;
+    text-align: right;
+    margin-right: 20px;
+    border-left: 2px solid #ccc;
+}
+
+h1 {
+    font-family: "Kanit", sans-serif;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 25px;
+}
+
+button {
+    padding: 12px 20px;
+    font-size: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin: 5px;
+}
+
+button.tarefa {
+    background-color: #007bff;
+    color: white;
+}
+
+button.tarefa:hover {
+    background-color: #0056b3;
+}
+
+button.solucoes {
+    background-color: #28a745;
+    color: white;
+}
+
+button.solucoes:hover {
+    background-color: #1e7e34;
+}
+
+.personagem {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    height: 200px;
+}
+.Parrot{
+    display: none;
+    top: 290px;
+    height: 120px;
+    left: 180px;
+    z-index: -100;
+}

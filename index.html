@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caça-Palavras</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div class="linha1">       
+            <div class="container">
+                <h1>Vamos organizar os personagens de Steamboat Willie</h1>
+                <img id="Mickey" class="personagem" src="img/mickey.png" alt="Mickey">
+                <img id="Minnie" class="personagem" src="img/minnie.png" alt="Minnie">
+                <img id="Parrot" class="personagem Parrot" src="img/parrot.gif" alt="Pluto">
+                <img id="Pete" class="personagem" src="img/pete.webp" alt="Pateta">
+            </div>
+            <div class="containerCSS">
+                <h1>Insira as declarações CSS nos seletores abaixo:</h1>
+                <textarea id="cssInput" rows="10" cols="50" placeholder="">
+#Mickey{
+
+}
+#Minnie{
+
+}
+#Pete{
+
+}
+#Parrot{
+
+}
+                </textarea>
+            </div>
+        </div>
+        <div class="linha2">
+            <div id="tarefas">
+                <h1>O que temos que fazer:</h1>
+                <button class="tarefa" id="Mickey-frente">1. Coloque o Mickey na frente dos demais desenhos</button>
+                <button class="tarefa" id="Mickey-baixo">2. Mova o Micckey para baixo</button>
+                <button class="tarefa" id="Mickey-rotacione">3. Rotacione 90° no Mickey</button>
+                <button class="tarefa" id="Minnie-baixo">4. Mova a Minnie para baixo</button>
+                <button class="tarefa" id="Minie-Mickey">5. Coloque a Minnie do lado do Michey</button>
+                <button class="tarefa" id="Minnie-rotacione">6. Rotacione 180° Minnie</button>
+                <button class="tarefa" id="Pete-Oculte">7. Oculte o Pete</button>
+                <button class="tarefa" id="Pete-Oculte">8. Mostre o Parrot</button>
+            </div>
+            <div id="solucoes">
+                <h1>Soluções (clique dentro do seletor para inserir):</h1>
+                <button class="solucoes" id="left">   left: 320px;</button>
+                <button class="solucoes" id="top1">   top: 250px;</button>
+                <button class="solucoes" id="transform1">   transform: rotate(90deg);</button>
+                <button class="solucoes" id="top2">   top: 250px;</button>
+                <button class="solucoes" id="z-index">   z-index: 100;</button>
+                <button class="solucoes" id="display">   display: none;</button>
+                <button class="solucoes" id="transform2">   transform: rotate(180deg);</button>
+                <button class="solucoes" id="transform2">   display: block;</button>
+            </div>
+        </div>
+
+    </main>
+    <script>
+        const cssInput = document.getElementById('cssInput');
+        const preview = document.getElementById('preview');
+
+        const style = document.createElement('style');
+        style.textContent = cssInput.value;
+        document.head.appendChild(style);
+
+        cssInput.addEventListener('input', () => {            
+            style.textContent = cssInput.value;
+            document.head.appendChild(style);
+        });
+
+        // Seleciona todas as divs com a classe cores-item
+        const coresDivs = document.querySelectorAll('.cores-item');
+
+        // Itera sobre cada div
+        coresDivs.forEach(div => {
+        // Define a cor de fundo da div com base no seu ID
+        div.style.backgroundColor = div.id;
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const cssInput = document.getElementById('cssInput');
+            const solucoesButtons = document.querySelectorAll('.solucoes');
+            const style = document.createElement('style');
+            document.head.appendChild(style);
+        
+            const updateCSS = () => {
+                style.textContent = cssInput.value;
+            };
+        
+            cssInput.addEventListener('input', updateCSS);
+        
+            solucoesButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const cursorPosition = cssInput.selectionStart;
+                    const textBefore = cssInput.value.substring(0, cursorPosition);
+                    const textAfter = cssInput.value.substring(cursorPosition);
+                    
+                    cssInput.value = textBefore + button.textContent + '\n' + textAfter;
+                    cssInput.focus();
+                    cssInput.selectionStart = cssInput.selectionEnd = cursorPosition + button.textContent.length + 1;
+                    
+                    updateCSS();
+                });
+            });
+
+            const tarefaButtons = document.querySelectorAll('.tarefa');
+    
+            tarefaButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    button.style.backgroundColor = '#d3d3d3';
+                    button.style.color = '#333';
+                });
+            });
+            
+            solucoesButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    button.style.backgroundColor = '#d3d3d3';
+                    button.style.color = '#333';
+                });
+            });
+            
+            
+        });
+    </script>
+</body>
+</html>
