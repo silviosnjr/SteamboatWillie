@@ -112,15 +112,13 @@
     
             tarefaButtons.forEach(button => {
                 button.addEventListener('click', () => {
-                    button.style.backgroundColor = '#d3d3d3';
-                    button.style.color = '#333';
+                    button.classList.toggle('ativo');
                 });
             });
             
             solucoesButtons.forEach(button => {
                 button.addEventListener('click', () => {
-                    button.style.backgroundColor = '#d3d3d3';
-                    button.style.color = '#333';
+                    button.classList.toggle('ativo');
                 });
             });
             
